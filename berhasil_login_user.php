@@ -49,6 +49,16 @@ while ($dataObat =  mysqli_fetch_array($result)) {
 	$data_obat[] = $dataObat;
 }
 
+// start from here to calculate k means
+$result = mysqli_query($conn, "SELECT * FROM tb_obat");
+
+$data=[];
+
+while($row=mysqli_fetch_array($result)){
+	$data[]=$row;
+	$nama[]=$row['nama'];
+}
+
 //hitung Euclidean Distance Space
 function jarakEuclidean($data = array(), $centroid = array())
 {
